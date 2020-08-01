@@ -1,0 +1,64 @@
+/* ============================================= */
+/*              Base styles                      */
+/* ============================================= */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  margin: 0;
+  
+
+}
+
+li{
+  list-style: none;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+}
+
+h1{
+  margin: 0;
+  font-size: 2.5em;
+  background: -webkit-linear-gradient(180deg, darken($icon-green,10%), $light-text-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2{
+  margin: .5em .5em;
+
+  }
+
+  h3{
+    margin: 1.1em;
+  }
+
+h4{
+  margin: 0;
+  font-size: 1em;
+}
+
+
+/* ============================================= */
+/*              Typography                       */
+/* ============================================= */
+
+
+ 
+.toggle-button{
+  float: right;
+  margin-right: 2em;
+
+}
+
+.header{
+  color: white;
+}
+
+

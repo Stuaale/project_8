@@ -1,0 +1,129 @@
+/* ============================================= */
+/*              Form ELements                    */
+/* ============================================= */
+
+
+.save, .close{
+  width: 3em;
+  height: 1.2em;
+  float: right;
+  padding: 0em;
+  font-size: 10px;
+
+}
+
+.dashboard-header input[type="search"],.message-field input[type="search"]{
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: 2em;
+  outline: 0;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.03) inset;
+  border-radius: 5px;
+  color: $color-text;
+}
+
+.dashboard-header input[type="search"]{
+  padding: 15px;
+  width: 70%;
+  background-color: lighten($element-background-color, 5%);
+  margin-top: .6em;
+  margin-right: .5em;
+  float: right;
+  @include mquery ('m'){
+    margin-top: 1em;
+  }
+}
+
+.message-field input[type="search"]{
+  width: 100%;
+  background-color: $element-background-color;
+  padding-left: 10px;  
+  @include mquery ('m'){
+    margin-top: 1em;
+  }
+}
+
+.form-field{
+  border: none;
+  font-size: 16px;
+  height: 2em;
+  outline: 0;
+  width: 80%;
+  background-color: $element-background-color;
+  color: #4B6B70;
+  box-shadow: 0 2px 0 $element-background-color inset;
+  border-radius: 5px;  
+  margin: 0 2em;
+  @include mquery ('m'){
+    margin-top: 1em;
+  @include mquery ('l'){
+    width: 90%;
+  }
+  }
+}
+
+
+.dashboard-header input, .message-field input, textarea{
+  transition: background-color .5s ease .1s;
+&:focus{
+  background-color: white;
+  border: solid 1px lightgrey;
+}
+}
+
+textarea{
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: 10em;
+  outline: 0;
+  width: 100%;
+  background-color: $element-background-color;
+  color: #4B6B70;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.03) inset;
+  border-radius: 5px;  
+  padding: 10px;
+}
+
+
+
+/* ============================================= */
+/*              Buttons                          */
+/* ============================================= */
+
+button {
+  width: 100%;
+  background-color: $primary-color;
+  padding: 1em 0;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid $secondary-color;
+  box-shadow: 2px 2px 4px $primary-color;
+  cursor: pointer;
+&:hover{
+  background-color: $secondary-color;
+  transition: .5s ease-in-out;
+}
+
+}
+#cancel{
+
+  background-color: darken($element-background-color, 10%);
+  border: 1px solid $element-background-color;
+  box-shadow: 2px 2px 4px $element-background-color;
+  &:hover{
+    background-color: darken($element-background-color, 20%);
+    transition: .5s ease-in-out;
+  }
+}
+
+#save, #cancel{
+  margin: .5em 0;
+  @include mquery ('l'){
+  width: 50%;
+  margin: 0 .5em;
+}
+}
+
+
