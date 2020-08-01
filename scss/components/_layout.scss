@@ -1,484 +1,314 @@
-/* ===================================== 
-  Layout
-======================================== */
+
 
 /* ===================================== 
-  Grid
+  Grid Layout
 ======================================== */
 .grid-container {
+  column-gap: 1em;
+  row-gap: 1em;
+  margin: 1em;
+  padding-bottom: 2em;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto; 
   grid-template-areas: 
-    "header"
-    "nav" 
-    "main";
+    "card";
   @include mquery ('m') {
-    grid-template-columns:80px 1fr;
+    margin: 0 2em;
+    grid-template-columns:repeat(2, 1fr);
     grid-template-areas: 
-    "header header"
-    "nav main"      
+    "card card"
+    "card card"  
+    "card card"  
+    "card card"  
+    "card card" 
+    "card card" 
 
   }
+  @include mquery ('l') {
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-areas: 
+    "card card card"
+    "card card card"  
+    "card card card"  
+    "card card card"  
 }
 
-header {
-  grid-area: header;
 }
 
-nav {
-  grid-area: nav;  
-}
-
-main {
-  grid-area: main;
-}
-  // end of body grid container setup
-
-// main element grid container
-
-main{
-  display: grid;     
-  @include mquery('m'){
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// end of main element grid container
-
-
-.dashboard-header, .traffic, .social-section, #alert{
-  @include mquery('m'){
-    grid-column: 1 / span 2;
-
-  }
-}
-
-
-
-.message, .daily-traffic{
+.card-1{
   @include mquery('m'){
     grid-column: 1 / span 1;
-
   }
 }
 
-.recent-activity-container, .settings, .mobile-users{
+.card-2{
   @include mquery('m'){
     grid-column: 2 / span 1;
   }
 }
 
-.traffic, 
-.social-section,   
-.daily-traffic, 
-.message,
-.mobile-users{
-  border-bottom: 1px solid lightgrey;
-  padding-bottom: 1.5em;
-}
-
-.daily-traffic{
+.card-3{
   @include mquery('m'){
-    border-right: 1px solid lightgrey;
+    grid-column: 1 / span 1;
+    grid-row: 2;
+  }
+  @include mquery('l'){
+    grid-column: 3 / span 1;
+    grid-row: 1;
   }
 }
+
+.card-4{
+  @include mquery('m'){
+    grid-column: 2 / span 1;
+    grid-row: 2;
+  }
+  @include mquery('l'){
+    grid-column: 1 / span 1;
+    grid-row: 2;
+  }
+}
+
+.card-5{
+  @include mquery('m'){
+    grid-column: 1 / span 1;
+    grid-row: 3;
+  }
+  @include mquery('l'){
+    grid-column: 2 / span 1;
+    grid-row: 2;
+  }
+}
+
+.card-6{
+  @include mquery('m'){
+    grid-column: 2 / span 1;
+    grid-row: 3;
+  }
+  @include mquery('l'){
+    grid-column: 3 / span 1;
+    grid-row: 2;
+  }
+}
+
+.card-7{
+  @include mquery('m'){
+    grid-column: 1 / span 1;
+    grid-row: 4;
+  }
+  @include mquery('l'){
+    grid-column: 1 / span 1;
+    grid-row: 3;
+  }
+}
+
+.card-8{
+  @include mquery('m'){
+    grid-column: 2 / span 1;
+    grid-row: 4;
+  }
+  @include mquery('l'){
+    grid-column: 2 / span 1;
+    grid-row: 3;
+  }
+}
+
+.card-9{
+  @include mquery('m'){
+    grid-column: 1 / span 1;
+    grid-row: 5;
+  }
+  @include mquery('l'){
+    grid-column: 3 / span 1;
+    grid-row: 3;
+  }
+}
+
+.card-10{
+  @include mquery('m'){
+    grid-column: 2 / span 1;
+    grid-row: 5;
+  }
+  @include mquery('l'){
+    grid-column: 1 / span 1;
+    grid-row: 4;
+  }
+}
+
+.card-11{
+  @include mquery('m'){
+    grid-column: 1 / span 1;
+    grid-row: 6;
+  }
+  @include mquery('l'){
+    grid-column: 2 / span 1;
+    grid-row: 4;
+  }
+}
+
+.card-12{
+
+  @include mquery('m'){
+    grid-column: 2 / span 1;
+    grid-row: 6;
+  }
+  @include mquery('l'){
+    grid-column: 3 / span 1;
+    grid-row: 4;
+  }
+}
+
+
+
 
 
 //End of Grid Layout
 
 /* ===================================== 
-  Header
+  Main Layout
 ======================================== */
 
-.main-header{
+
+header{
+  text-transform: uppercase;
+  padding: 1.5em;
   text-align: center;
-  height: 8em;
-  background-color: $primary-color;
   @include mquery ('m'){
-    @include flex($dir: row, $just: space-between);
-    text-align: left;
-    height: 5em;
-    background-color: $primary-color;
+    text-align: start;
+    padding-left: 2em;
+
   }
 }
 
-.header{
-  margin-top: .4em;
-  padding-bottom: .4em;
-  border-bottom: 1px solid $secondary-color;
-  @include mquery ('m'){
-  margin: .4em 0 0 0.5em;
-  border-bottom: none;
-}
-}
+.card{
+  padding: .3em;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: white;
+  width: auto;
+  height: 8em;  
+  transition: ease-in-out .6s;
+  &:hover{
+    box-shadow: 0 0 20px #000;
+  }
+  }
 
-.profile-info{
-  @include flex($dir: row,$just: center);
-  margin-top: .5em;
-  text-align: center;
-  @include mquery ('m'){
-    padding: 0.5em 1.3em;
+  .text-container{
+    line-height: 1em;
+    margin: auto 0;
+    padding-bottom: 1em;
+  }
 
-} 
-}
 
-.profile-detail{
-  @include flex($dir: row); 
-  margin-left: 2em;
-  @include mquery ('m'){
-    margin-left: 0;
-    padding: 0 2em;
-    height: 3.5em;
-    border-left: solid 1px black; 
-  
-}
-}
+  /* ===================================== 
+Overlay 
+======================================== */
 
-.alert-list{
-  @include flex ($dir: column,$just: space-between);
-  width: 19em;
-  text-align: start;
+.overlay {
   position: absolute;
-  right: -190px;
-  background-color: lighten($primary-color, 20%);
-  border-radius: 5px;
-  transition: ease-in-out 1s;
-
-& li{
-  border: solid 1px darken($primary-color, 25%);
-  height: 3em;
-  padding: .5em .5em .5em .2em;
-  font-size: 14px;
-}
-& div{
-  display: block;
-  width: 1em;
-  float: right;
-  margin-left: 2em;
-}
-}
-
-
-.member-name{ 
-  margin-top: .5em;
-  margin-left: 1em;
-  @include mquery ('m'){
-    margin-top: .8em;
-    margin-left: 1.5em;
-}
-}
-
-/* ===================================== 
-  Nav
-======================================== */
-
-.main-nav{
-  height: 5em;
-  background-color: $secondary-color;
-  @include mquery('m'){
-  height:100%;
-  box-shadow: 5px 5px 5px white;
-}
-}
-
-.nav-links{
-  @include flex($dir: row, $just: space-between);
-  padding: .5em 3em;
-  margin-top: .5em;
-  @include mquery('m'){
-    @include flex($dir: column, $just: center);
-    padding: .5em;
-  }    
-
-  & li{
-  @include mquery('m'){
-    margin: 0 .5em;
-    padding: 1em 0;
-  }
-  &:hover{
-    transform: scale(1.05);
-  }
-}
-}
-
-/* ===================================== 
-  Main Section
-======================================== */
-/* ===================================== 
-  Alert Banner
-======================================== */
-
-#alert{
-  height: 30px;
-  @include flex($dir: row, $just: space-between);
-  margin: 1em 2em;
-  background-color: $primary-color;
-  border-radius: 5px;
-  cursor: pointer;
-&:hover{
-  transform: scale(1.01)
-}
-}
-
-.alert-banner, .close-banner{
-  margin: .3em .5em;
-  color: $light-text-color;
-  @include mquery ('m'){
-    margin: .3em 1em;
-}
-}
-
-.close-banner{
-  font-weight: bold;
-}
-
-
-/* ===================================== 
-  Dashboard Section
-======================================== */
-
-.dashboard-header{
-  @include flex($dir: row, $just: space-between);
-  @include mquery('m'){
-    height: 4em;
-}
-}
-
-.dashboard-search{
-  background-color: darken($element-background-color,5%);
-  width: 80%;
-  border-bottom-left-radius: 20px;
-}
-
-.traffic-header{
-  @include flex($dir: row, $just: space-between);
-}
-
-.traffic-nav{
-  @include flex($dir: row);
-  margin-top: 1em;
-  margin-right: 3em;
-  height: 10px;
-  cursor: pointer;
-  & li{
-    margin-left: .5em;
-    border-radius: 8px;
-    border: 1px solid black;
-    height: 1.5em;
-    min-width: 4em;
-    text-align: center;
-
-  }
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(51, 51, 51, 0.8);
 
 }
 
-.selected{
-  background-color: $icon-green;
-}
-
-//dashboard end
-
-
-
-/* ===================================== 
-Social Section
-======================================== */
-
-.social-detail{
-  @include flex($dir: row, $wrap: wrap, $just: space-evenly);
-  padding: 0 .6em .6em .6em;
-  @include mquery('m'){
-    padding: 1em;
-}
-}
-
-.social-container{
-  @include flex($dir: row, $wrap: wrap);
-  border: solid 1px lightgrey;
-  border-radius: 5px;
-  background-color: $element-background-color ;
-  width: 32%; 
-  box-shadow: 5px 5px 8px darken($element-background-color, 10%);
-  
-  @include mquery('m'){
-    height: 125px;
-    margin: 0 auto;
-    }
-&:hover{
-  transform: scale(1.05);
-
-}
-  }
-
-  .social-text{
-    margin: 0 auto;
-   @include mquery ('m') {
-    margin: 1em .5em;
-   }
-   @include mquery ('l') {
-    margin: 1em 0 .5em .5em;
-   }
-   & h5{
-    color: $primary-color;
-    font-weight: bold;
-    font-size: 1em;
-    @include mquery ('m'){
-      font-size: 1.2em;
-      margin: 0;
-    }
-    @include mquery ('l'){
-      font-size: 1.8em;
-    }
-  }
-   & p{
-    color: grey;
-    font-size: 1.5em;
-    @include mquery ('m'){    
-     font-size: 2em;
-     margin: .2em 0;
-   } 
-   @include mquery ('l'){    
-    font-size: 2.5em;
-    margin: .2em 0;
-  } 
-  }
-}
-
-.twitter-stats, .facebook-stats, .google-stats{
-  margin: 1em auto;
-  @include mquery ('m'){  
-    margin: 0.7em .5em;
-}
-  @include mquery ('l'){  
-    margin: 0.7em 2em;
-}
-}
-
-//end of social section
-
-/* ===================================== 
-  Member Section
-======================================== */
-
-.member-info{
-  margin-top: .5em;
-  align-content: space-around;
-  height: 4.2em;
-  border-bottom: 1px solid lightgrey;
-  @include flex($dir: row);
-  &:hover{
-    transform: scale(1.01);
-  }
-  & p{
-    margin:0;
-  }
-  & img{
-    margin-left: 1em;
-  }
-
-}
-
-.members-text{
-  margin-left: 1.5em; 
-  @include flex($dir: column, $wrap: wrap);
-}
-
-
-.join-date{
-  margin: 1em 1em 0 auto;
-  @include mquery ('m'){
-    margin: 1em 1em 0 auto;  
-  }
-  @include mquery ('l'){
-    margin: 1em 5em 0 auto;  
-  }
-}
-
-.selector-arrow{
-  margin: 1em 1em 0 auto;
-  @include mquery ('m'){
-    margin: 1em 1em 0 auto;  
-  }
-  @include mquery ('l'){
-    margin: 0em 4em 0 auto;  
-  }
-  & a{
-  text-decoration: none;
-  font-size: 1.5em;
-  color: $primary-color;
-  @include mquery ('l'){
-    font-size: 2.5em;
-  }
-}
-}
-
-//end of member info section
-
-/* ===================================== 
-  Member Search and Setting sections
-======================================== */
-
-.member-search{
-  width: 100%;
-  padding: 0em 2em;
-  margin-bottom: 1em;
-  & h3{
-    margin-bottom: 10px;
-  }
-}
-
-.message form{
-  width: 100%;
-  padding: 0em 2em;
-  margin-bottom: 1em;
-
-}
-
-.settings h3, .switch-light, .form-field{  
-  @include mquery('m'){
-  margin-bottom: 1.5em;
-}
-}
-
-.switch-light{
-  margin: 1em 0 1em 2em;
-}
-
-
-.button-primary{
-  margin-top: 1em;
-
-}
-
-.button-settings{
-  width: 100%;
-  padding: 0em 2em;
-  margin-top: 1.2em ;
-  @include mquery ('m'){
-    margin-top: 2.1em;
-  }
-  @include mquery ('l'){
-    @include flex ($dir: row, $just: space-between);
-    margin-top: 4.2em;
-    
-  }
-}
-
-.form-field{
-  margin: 0 2em;
-  @include mquery ('l'){
-    margin-top: 2.5em;
-}
-}
-
-.message-field{
-  padding: 0 2em;
+.modal {
+  width: 250px ;
+  margin: 15% auto auto;
   position: relative;
+  text-align: center;
+  background: #fff ;
+  border: 1px solid #778 ;
+  border-radius: 5px ;
+  padding: 30px 20px ;
+  @include mquery('m'){
+    width: 375px;
+  }
+
 }
 
+.modal-close {
+  position: absolute;
+  border: none;
+  background-color: white;
+  right: 15px ;
+  top: 5px ;
+  font-size: 1.2em;
+  cursor: pointer;
+  &:hover{
+   transform: scale(1.3)
+  }
+  }
+
+  .hidden {
+    display: none;
+    }
 
 
+    .previous,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      color: $primary-color;
+      font-size: 3em;
+      border: none;
+      padding: 0;
+      background-color: white;
+      &:hover{
+        transform: scale(1.3);
+       }
 
 
+    }
+ 
+    .next {
+      right: 0;
+      margin-right: 0.2em;
+      
+    }
 
+    .previous{
+      left: 0;
+      margin-left: 0.2em;
+    }
+
+/* ===================================== 
+  Search
+======================================== */
+    
+ 
+    .search-field input[type="search"]{
+      border: none;
+      font-size: 16px;
+      height: 2em;
+      border-radius: 5px;
+      color: $color-text;
+      padding: 1em;
+      width: 100%;
+      transition: background-color 1s ease-in-out .2s;
+      margin: 0 auto;
+    }
+
+
+   
+    .search-field input:focus{
+      background-color: lighten($secondary-color,50%);
+      color: white;
+      border: solid 1px lightgrey;
+    }
+
+    form{
+      margin: 0 2em 1.5em 2em;
+      @include mquery ('m'){
+      margin: 0 6em 1.5em 6em; 
+      }
+    }
+
+  
+ 
