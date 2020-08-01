@@ -704,7 +704,7 @@ Overlay
 }
 
 .search-field input:focus {
-  background-color: #a6a6a6;
+  background-color: #bfbfbf;
   color: white;
   border: solid 1px lightgrey;
 }
