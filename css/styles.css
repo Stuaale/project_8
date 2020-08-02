@@ -718,4 +718,8 @@ form {
   }
 }
 
+button, input {
+  outline: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
